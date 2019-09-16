@@ -8,13 +8,14 @@
     </head>
     <body>
         <h1>Welcome to {{user_data.first_name}} {{user_data.last_name}} profile!</h1>
-        <p>Age: </p>
-        <p>Birthdate: </p>
-        <p>Nationality: </p>
+        <p>Age: {{ user_data.age }}</p>
+        <p>Birthdate: {{ user_data.birthdate }}</p>
+        <p>Nationality: {{ user_data.nationality }}</p>
         <p>Worked at:</p>
         <ul>
-          <!-- HINT: Use the forloop syntax from Flask template engine to
-          render a <li> tag for each work in user_data.worked_at -->
+            {% for work in user_data.worked_at: %}
+                <li> {{ work }} </li>
+            {% endfor %}
         </ul>
     </body>
 </html>
